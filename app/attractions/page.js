@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image' // <-- เพิ่มส่วนนี้
 
 export default function Page() {
   const [attractions, setAttractions] = useState([]);
@@ -28,7 +29,15 @@ export default function Page() {
         {attractions.map((item) => (
           <li key={item.id}>
             <h2>{item.name}</h2>
-            <img src={item.coverimage} height={200} alt={item.name} />
+            
+            {/* แก้ไขจาก <img> เป็น <Image /> */}
+            <Image 
+              src={item.coverimage} 
+              alt={item.name} 
+              width={300} // กำหนดขนาด Width
+              height={200} // กำหนดขนาด Height
+            /> 
+            
             <p>{item.detail}</p>
             <Link href={`/attractions/${item.id}`}>Read More</Link>
           </li>
