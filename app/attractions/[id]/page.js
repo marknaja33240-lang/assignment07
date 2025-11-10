@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image' // <-- เพิ่มส่วนนี้
+// ลบ import Image from 'next/image' ออก
 
 export default function Page() {
   const { id } = useParams();
@@ -49,13 +49,8 @@ export default function Page() {
     <div>
       <h1>{attraction.name}</h1>
       
-      {/* แก้ไขจาก <img> เป็น <Image /> */}
-      <Image 
-        src={attraction.coverimage} 
-        alt={attraction.name} 
-        width={600} // กำหนดขนาด Width
-        height={400} // กำหนดขนาด Height
-      /> 
+      [cite_start]{/* Revert กลับไปใช้แท็ก <img> ธรรมดา [cite: 941] */}
+      <img src={attraction.coverimage} alt={attraction.name} /> 
       
       <p>{attraction.detail}</p>
       <p>Latitude: {attraction.latitude}</p>
